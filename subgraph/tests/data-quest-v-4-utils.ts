@@ -4,7 +4,7 @@ import {
   AnswerSubmitted,
   QuestionCreated,
   WinnersDeclared
-} from "../generated/DataQuestV4/DataQuestV4"
+} from "../generated/DataQuest/DataQuest"
 
 export function createAnswerSubmittedEvent(
   answerHash: Bytes,

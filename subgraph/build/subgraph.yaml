@@ -5,12 +5,12 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum
-    name: DataQuestV4
+    name: DataQuest
     network: mumbai
     source:
-      address: "0x226082F16820F78ceE3bED4F9363084e695742f2"
-      abi: DataQuestV4
-      startBlock: 29455617
+      address: "0xA2676b7e41E6fbD9DE1163A6B9522CDC354b5105"
+      abi: DataQuest
+      startBlock: 29471910
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -20,8 +20,8 @@ dataSources:
         - QuestionCreated
         - WinnersDeclared
       abis:
-        - name: DataQuestV4
-          file: DataQuestV4/abis/DataQuestV4.json
+        - name: DataQuest
+          file: DataQuest/abis/DataQuest.json
       eventHandlers:
         - event: AnswerSubmitted(bytes32,bytes32,address,string,string,string)
           handler: handleAnswerSubmitted
@@ -29,4 +29,4 @@ dataSources:
           handler: handleQuestionCreated
         - event: WinnersDeclared(bytes32,address[])
           handler: handleWinnersDeclared
-      file: DataQuestV4/DataQuestV4.wasm
+      file: DataQuest/DataQuest.wasm

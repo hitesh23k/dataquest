@@ -2,7 +2,7 @@ import {
     AnswerSubmitted as AnswerSubmittedEvent,
     QuestionCreated as QuestionCreatedEvent,
     WinnersDeclared as WinnersDeclaredEvent
-} from "../generated/DataQuestV4/DataQuestV4"
+} from "../generated/DataQuest/DataQuest"
 import {
     Answer,
     Protocol,

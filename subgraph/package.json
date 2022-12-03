@@ -1,19 +1,20 @@
 {
-  "name": "subgraph",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "questionanswers",
+  "license": "UNLICENSED",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ chaitanya2801",
-    "init": "graph init --product hosted-service chaitanya2801/questionanswer"
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ abhayait/dataquest",
+    "create-local": "graph create --node http://localhost:8020/ abhayait/dataquest",
+    "remove-local": "graph remove --node http://localhost:8020/ abhayait/dataquest",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 abhayait/dataquest",
+    "test": "graph test"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.37.0"
-    
+    "@graphprotocol/graph-cli": "0.37.0",
+    "@graphprotocol/graph-ts": "0.28.1"
+  },
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
   }
 }

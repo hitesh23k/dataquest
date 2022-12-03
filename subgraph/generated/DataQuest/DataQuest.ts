@@ -124,7 +124,7 @@ export class WinnersDeclared__Params {
   }
 }
 
-export class DataQuestV4__answerMapResult {
+export class DataQuest__answerMapResult {
   value0: Bytes;
   value1: string;
   value2: string;
@@ -176,7 +176,7 @@ export class DataQuestV4__answerMapResult {
   }
 }
 
-export class DataQuestV4__getQuestionAnswersMapResultValue0Struct extends ethereum.Tuple {
+export class DataQuest__getQuestionAnswersMapResultValue0Struct extends ethereum.Tuple {
   get questionHash(): Bytes {
     return this[0].toBytes();
   }
@@ -198,7 +198,7 @@ export class DataQuestV4__getQuestionAnswersMapResultValue0Struct extends ethere
   }
 }
 
-export class DataQuestV4__questionAnswersMapResult {
+export class DataQuest__questionAnswersMapResult {
   value0: Bytes;
   value1: string;
   value2: string;
@@ -250,7 +250,7 @@ export class DataQuestV4__questionAnswersMapResult {
   }
 }
 
-export class DataQuestV4__questionMapResult {
+export class DataQuest__questionMapResult {
   value0: Address;
   value1: string;
   value2: string;
@@ -326,9 +326,9 @@ export class DataQuestV4__questionMapResult {
   }
 }
 
-export class DataQuestV4 extends ethereum.SmartContract {
-  static bind(address: Address): DataQuestV4 {
-    return new DataQuestV4("DataQuestV4", address);
+export class DataQuest extends ethereum.SmartContract {
+  static bind(address: Address): DataQuest {
+    return new DataQuest("DataQuest", address);
   }
 
   answerCounter(): BigInt {
@@ -350,14 +350,14 @@ export class DataQuestV4 extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
-  answerMap(param0: Bytes): DataQuestV4__answerMapResult {
+  answerMap(param0: Bytes): DataQuest__answerMapResult {
     let result = super.call(
       "answerMap",
       "answerMap(bytes32):(bytes32,string,string,string,address)",
       [ethereum.Value.fromFixedBytes(param0)]
     );
 
-    return new DataQuestV4__answerMapResult(
+    return new DataQuest__answerMapResult(
       result[0].toBytes(),
       result[1].toString(),
       result[2].toString(),
@@ -368,7 +368,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
 
   try_answerMap(
     param0: Bytes
-  ): ethereum.CallResult<DataQuestV4__answerMapResult> {
+  ): ethereum.CallResult<DataQuest__answerMapResult> {
     let result = super.tryCall(
       "answerMap",
       "answerMap(bytes32):(bytes32,string,string,string,address)",
@@ -379,7 +379,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new DataQuestV4__answerMapResult(
+      new DataQuest__answerMapResult(
         value[0].toBytes(),
         value[1].toString(),
         value[2].toString(),
@@ -391,7 +391,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
 
   getQuestionAnswersMap(
     questionHash: Bytes
-  ): Array<DataQuestV4__getQuestionAnswersMapResultValue0Struct> {
+  ): Array<DataQuest__getQuestionAnswersMapResultValue0Struct> {
     let result = super.call(
       "getQuestionAnswersMap",
       "getQuestionAnswersMap(bytes32):((bytes32,string,string,string,address)[])",
@@ -399,14 +399,14 @@ export class DataQuestV4 extends ethereum.SmartContract {
     );
 
     return result[0].toTupleArray<
-      DataQuestV4__getQuestionAnswersMapResultValue0Struct
+      DataQuest__getQuestionAnswersMapResultValue0Struct
     >();
   }
 
   try_getQuestionAnswersMap(
     questionHash: Bytes
   ): ethereum.CallResult<
-    Array<DataQuestV4__getQuestionAnswersMapResultValue0Struct>
+    Array<DataQuest__getQuestionAnswersMapResultValue0Struct>
   > {
     let result = super.tryCall(
       "getQuestionAnswersMap",
@@ -419,7 +419,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
     let value = result.value;
     return ethereum.CallResult.fromValue(
       value[0].toTupleArray<
-        DataQuestV4__getQuestionAnswersMapResultValue0Struct
+        DataQuest__getQuestionAnswersMapResultValue0Struct
       >()
     );
   }
@@ -448,7 +448,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
   questionAnswersMap(
     param0: Bytes,
     param1: BigInt
-  ): DataQuestV4__questionAnswersMapResult {
+  ): DataQuest__questionAnswersMapResult {
     let result = super.call(
       "questionAnswersMap",
       "questionAnswersMap(bytes32,uint256):(bytes32,string,string,string,address)",
@@ -458,7 +458,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
       ]
     );
 
-    return new DataQuestV4__questionAnswersMapResult(
+    return new DataQuest__questionAnswersMapResult(
       result[0].toBytes(),
       result[1].toString(),
       result[2].toString(),
@@ -470,7 +470,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
   try_questionAnswersMap(
     param0: Bytes,
     param1: BigInt
-  ): ethereum.CallResult<DataQuestV4__questionAnswersMapResult> {
+  ): ethereum.CallResult<DataQuest__questionAnswersMapResult> {
     let result = super.tryCall(
       "questionAnswersMap",
       "questionAnswersMap(bytes32,uint256):(bytes32,string,string,string,address)",
@@ -484,7 +484,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new DataQuestV4__questionAnswersMapResult(
+      new DataQuest__questionAnswersMapResult(
         value[0].toBytes(),
         value[1].toString(),
         value[2].toString(),
@@ -517,14 +517,14 @@ export class DataQuestV4 extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
-  questionMap(param0: Bytes): DataQuestV4__questionMapResult {
+  questionMap(param0: Bytes): DataQuest__questionMapResult {
     let result = super.call(
       "questionMap",
       "questionMap(bytes32):(address,string,string,string,address,uint256,uint256,uint256)",
       [ethereum.Value.fromFixedBytes(param0)]
     );
 
-    return new DataQuestV4__questionMapResult(
+    return new DataQuest__questionMapResult(
       result[0].toAddress(),
       result[1].toString(),
       result[2].toString(),
@@ -538,7 +538,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
 
   try_questionMap(
     param0: Bytes
-  ): ethereum.CallResult<DataQuestV4__questionMapResult> {
+  ): ethereum.CallResult<DataQuest__questionMapResult> {
     let result = super.tryCall(
       "questionMap",
       "questionMap(bytes32):(address,string,string,string,address,uint256,uint256,uint256)",
@@ -549,7 +549,7 @@ export class DataQuestV4 extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new DataQuestV4__questionMapResult(
+      new DataQuest__questionMapResult(
         value[0].toAddress(),
         value[1].toString(),
         value[2].toString(),

@@ -8,7 +8,7 @@ import {
 } from "matchstick-as/assembly/index"
 import { Bytes, Address, BigInt } from "@graphprotocol/graph-ts"
 import { AnswerSubmitted } from "../generated/schema"
-import { AnswerSubmitted as AnswerSubmittedEvent } from "../generated/DataQuestV4/DataQuestV4"
+import { AnswerSubmitted as AnswerSubmittedEvent } from "../generated/DataQuest/DataQuest"
 import { handleAnswerSubmitted } from "../src/data-quest-v-4"
 import { createAnswerSubmittedEvent } from "./data-quest-v-4-utils"
 
