@@ -10,7 +10,7 @@
 
 With the increasing acceptance of web3 and the emergence of so many unique and innovative blockchain networks and dapps, getting the right data becomes extremely difficult. Getting on-chain data comes with challenges regardless of how big or small the dapp is or how densely populated their data is.
 
-Existing platforms are either centralized (gitcoin) or don't directly focus on much smaller data requirements. The platforms are neither transparent nor permissionless and it is just a task to...put up a task.
+Existing platforms are either centralized (gitcoin) or don't directly focus on much smaller data requirements. The platforms are neither transparent nor permissionless and it is just a task to..._put up a task_.
 
 Another issue the platforms usually encounter is that of the Dapp/Data requestor not being able to communicate with the data-finding community enough for them to understand what the requirements are for providing feedback on a one-on-one basis
 
