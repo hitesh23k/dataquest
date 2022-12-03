@@ -289,7 +289,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct DataQuest.Answer[]",
+        "internalType": "struct DataQuest_Hack.Answer[]",
         "name": "",
         "type": "tuple[]"
       }

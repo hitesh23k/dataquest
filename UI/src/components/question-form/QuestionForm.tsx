@@ -102,7 +102,7 @@ function QuestionForm() {
               className="input-field"
               type="text"
             />
-            <label className="our-label">Token</label>
+            <label className="our-label">Token - All ERC20 Tokens are Supported</label>
             <select
               value={questionData.token}
               onChange={handleForm}

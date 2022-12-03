@@ -80,7 +80,7 @@ function Homepage() {
               </li>
               <li className="stats-list-element">
                 <div className="stats">
-                  <h1 className="stats-value">30</h1>
+                  <h1 className="stats-value">50</h1>
                   <h3 className="stats-name">Answers</h3>
                 </div>
               </li>

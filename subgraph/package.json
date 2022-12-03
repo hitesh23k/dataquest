@@ -4,7 +4,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ abhayait/dataquest",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ abhayait/dataquest --access-token 333032acdd83489ba081339596750625",
     "create-local": "graph create --node http://localhost:8020/ abhayait/dataquest",
     "remove-local": "graph remove --node http://localhost:8020/ abhayait/dataquest",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 abhayait/dataquest",

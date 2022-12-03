@@ -8,7 +8,7 @@ dataSources:
       name: DataQuest
       network: mumbai
       source:
-          address: "0xA2676b7e41E6fbD9DE1163A6B9522CDC354b5105"
+          address: "0x6486B69F11a20a3Af3fc5BCc84D1F6C80645FA10"
           abi: DataQuest
           startBlock: 29471910
       mapping:

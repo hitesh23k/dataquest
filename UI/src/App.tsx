@@ -24,10 +24,10 @@ function App() {
   console.log(myState);
 
   const client = new ApolloClient({
-    uri: 'https://api.thegraph.com/subgraphs/name/realchoubey/questionanswers',
+    uri: 'https://api.thegraph.com/subgraphs/name/abhayait/dataquest',
     cache: new InMemoryCache(),
   });
-  
+
   return (
     <ApolloProvider client={client}>
     <Router>

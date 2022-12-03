@@ -5,7 +5,7 @@ class Constant {
   }
 
   get dataQuestcontract(): string {
-    return '0x226082F16820F78ceE3bED4F9363084e695742f2';
+    return '0x6486B69F11a20a3Af3fc5BCc84D1F6C80645FA10';
   }
 
   get maticTokenAddress(): string {
