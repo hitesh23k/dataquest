@@ -205,7 +205,7 @@ export default class DataQuestWrapper {
 
     receipt = await this.getTxReciept(transactionHash);
 
-    return receipt.logs[0].data;
+    return receipt.logs[1].data;
   };
 
   async sleep(ms: number) {

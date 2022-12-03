@@ -191,7 +191,7 @@ function Discoverpage() {
                   value={userSearchValue}
                   onChange={(e) => setUserSearchValue(e.target.value)}
                   type="text"
-                  placeholder="search"
+                  placeholder="Search"
                 />
                 <button className="search-btn" onClick={handleSearch}>
                   <svg
