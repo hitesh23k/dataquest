@@ -69,6 +69,25 @@ contract DataQuest {
         uint256[] memory winnersAmount,
         string memory imageUrl) external {
         // Creation question
+        Question memory quest;
+        quest.questioner = msg.sender;
+        quest.title = title;
+        quest.description = description;
+        quest.imageUrl = imageUrl;
+        quest.token = token;
+        quest.startTimestamp = startTimestamp;
+        quest.endTimestamp = endTimestamp;
+        quest.totalWinningAmount = totalWinningAmount;
+        quest.winnersAmount = winnersAmount;
+
+        bytes32 questionHash = bytes32(keccak256(abi.encodePacked(msg.sender, questionCounter)));
+        questionMap[questionHash] = quest;
+        questionCounter += 1;
+
+        emit QuestionCreated(
+            questionHash, msg.sender, title,
+            description, imageUrl, token, startTimestamp,
+            endTimestamp, totalWinningAmount, winnersAmount);
     }
 
     function submitAnswer(
@@ -77,17 +96,34 @@ contract DataQuest {
         string memory answerDescription,
         string memory answerImageUrl) external {
         // Submit answer
+        Answer memory ans;
+        ans.answerer = msg.sender;
+        ans.questionHash = questionHash;
+        ans.imageUrl = answerImageUrl;
+        ans.description = answerDescription;
+        ans.linkToAnswer = answerLink;
+
+        // Create unique id for answer
+        bytes32 answerHash = bytes32(keccak256(abi.encodePacked(msg.sender, answerCounter)));
+        answerMap[answerHash] = ans;
+        answerCounter += 1;
+
+        // Push answer to questionAnswersMap
+        questionAnswersMap[questionHash].push(ans);
+
+        emit AnswerSubmitted(answerHash, questionHash, msg.sender, answerLink, answerDescription, answerImageUrl);
     }
 
     function declareWinners(bytes32 questionHash, address[] memory winners) external {
-        
+        questionWinnersMap[questionHash] = winners;
+        emit WinnersDeclared(questionHash, winners);
     }
 
     function getQuestionAnswersMap(bytes32 questionHash) public view returns (Answer[] memory){
-        return;
+        return questionAnswersMap[questionHash];
     }
 
     function getWinners(bytes32 questionHash) public view returns (address[] memory){
-        return;
+        return questionWinnersMap[questionHash];
     }
 }
