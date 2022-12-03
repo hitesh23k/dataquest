@@ -6,6 +6,21 @@
  - [Deployed Subgraph](https://thegraph.com/hosted-service/subgraph/abhayait/dataquest)
  - [Push Channel]( https://staging.push.org/#/channels?channel=0x7b3Cb0dbCC799262Ed7A17D71A419d962536645A)
 
+## Tech Stack
+
+- Smart Contract (Solidity)
+DataQuest Contract Address: `0xA2676b7e41E6fbD9DE1163A6B9522CDC354b5105`
+- Subgraph
+DataQuest Subgraph: [abhayait/dataquest](https://thegraph.com/hosted-service/subgraph/abhayait/dataquest)
+- Push Protocol
+DataQuest Channel: [DataQuest-hack](https://staging.push.org/#/channels?channel=0x7b3Cb0dbCC799262Ed7A17D71A419d962536645A)
+- Filecoin
+_https://bafybeig67y74l4m2pyasduyn6t55bbxn5b2qe72xffn5edhgbmtcntjswu.ipfs.w3s.link/lens-protocol.jpg_
+_https://bafybeibdplglqhmh46ef5a3ywk4zrqh56hso7ad5n552as57ekudhea5we.ipfs.w3s.link/polygon.webp_
+_https://bafybeigyj6dmsg5eirdel2u6224ctyk3ewyfqwthaxiz2zjax3jnekr6lu.ipfs.w3s.link/binance.png_
+- ReactJS
+- TypeScript
+
 ## About
 
 With the increasing acceptance of web3 and the emergence of so many unique and innovative blockchain networks and dapps, getting the right data becomes extremely difficult. Getting on-chain data comes with challenges regardless of how big or small the dapp is or how densely populated their data is.
