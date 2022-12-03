@@ -1,12 +1,12 @@
 *Welcome to DataQuest.io – Quest, Queries, and Earn.*
 # DataQuest - Decentralized Data Quest Protocol
-### Acknowledgements
+## Acknowledgements
 
  - [Deployed Contract](https://mumbai.polygonscan.com/address/0xA2676b7e41E6fbD9DE1163A6B9522CDC354b5105)
  - [Deployed Subgraph](https://thegraph.com/hosted-service/subgraph/abhayait/dataquest)
  - [Push Channel]( https://staging.push.org/#/channels?channel=0x7b3Cb0dbCC799262Ed7A17D71A419d962536645A)
 
-### About
+## About
 
 With the increasing acceptance of web3 and the emergence of so many unique and innovative blockchain networks and dapps, getting the right data becomes extremely difficult. Getting on-chain data comes with challenges regardless of how big or small the dapp is or how densely populated their data is.
 
@@ -18,7 +18,7 @@ What if there was a dapp that could help them connect with professionals/people 
 
 answer their questions, support a decentralized chat platform for dapps/data requestors to communicate with the data finders, and get their requirements met?
 
-### Documentation
+## Documentation
 _Introducing..._ 
 **DataQuest**
 
