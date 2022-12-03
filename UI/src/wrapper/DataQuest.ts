@@ -177,12 +177,14 @@ export default class DataQuestWrapper {
   }
 
   private executeMetamaskTransaction = async (encodedAbi: string) => {
+    console.log(`window.ethereum.selectedAddress`+window.ethereum.selectedAddress);
     let block = await this.web3.eth.getBlock('latest');
     let gasLimit = Math.round(block.gasLimit / block.transactions.length).toString();
+    console.log(`gasLimit:`, gasLimit);
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      gasPrice: '0x2540BE400', // customizable by user during MetaMask confirmation.
-      gas: gasLimit, // customizable by user during MetaMask confirmation.
+      gasPrice: '0x2540BE40', // customizable by user during MetaMask confirmation.
+      gas: '200390', // customizable by user during MetaMask confirmation.
       to: Constant.dataQuestcontract, // Required except during contract publications.
       from: window.ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
@@ -198,8 +200,7 @@ export default class DataQuestWrapper {
     console.log(transactionHash);
 
     console.log('sleeping');
-    // HARSH ADD LOADER HERE
-    await this.sleep(15000);
+    await this.sleep(20000);
     console.log('woke up');
 
     receipt = await this.getTxReciept(transactionHash);
