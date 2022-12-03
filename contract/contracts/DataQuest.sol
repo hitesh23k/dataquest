@@ -53,8 +53,6 @@ contract DataQuest {
         bytes32 questionHash,
         address[] winners
     );
-    // event lockedFund(address questionerAddress, address token, uint256 amount);
-    // event fundTransferredToWinners(address questioner, address token, uint256 amount, address[] winnersAddress);
 
     constructor(){
         questionCounter = 0;
