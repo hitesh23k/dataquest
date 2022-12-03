@@ -2,7 +2,7 @@
 # DataQuest - Decentralized Data Quest Protocol
 ## Acknowledgements
 
- - [Deployed Contract](https://mumbai.polygonscan.com/address/0xA2676b7e41E6fbD9DE1163A6B9522CDC354b5105)
+ - [Deployed Contract](https://mumbai.polygonscan.com/address/0x6486B69F11a20a3Af3fc5BCc84D1F6C80645FA10)
  - [Deployed Subgraph](https://thegraph.com/hosted-service/subgraph/abhayait/dataquest)
  - [Push Channel]( https://staging.push.org/#/channels?channel=0x7b3Cb0dbCC799262Ed7A17D71A419d962536645A)
 
@@ -11,7 +11,7 @@
 #### ReactJS
 #### TypeScript
 #### Smart Contract (Solidity)
-- DataQuest Contract Address: `0xA2676b7e41E6fbD9DE1163A6B9522CDC354b5105`
+- DataQuest Contract Address: `0x6486B69F11a20a3Af3fc5BCc84D1F6C80645FA10`
 #### Subgraph
 - DataQuest Subgraph: [abhayait/dataquest](https://thegraph.com/hosted-service/subgraph/abhayait/dataquest)
 #### Push Protocol
