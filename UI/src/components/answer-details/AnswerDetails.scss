@@ -1,0 +1,121 @@
+.transparent-container {
+  z-index: 100;
+  scale: 0.8;
+  width: 1166px;
+  height: 818px;
+  border-radius: 24px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .close-icon {
+    position: absolute;
+    right: 42px;
+    color: white;
+    top: 24px;
+    font-size: 47px;
+    z-index: 1000;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+
+  .answer-details-wrapper {
+    color: #fff;
+    width: 1116px;
+    height: 768px;
+    background-image: url(./answer-form.png);
+
+    .answer-details-content {
+      .answer-details-banner {
+        height: 188px;
+        width: 1116px;
+        position: relative;
+        img {
+          border-radius: 24px 24px 0 0;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+        }
+
+        .answer-details-userprofile {
+          z-index: 11;
+          position: relative;
+          left: 60px;
+          top: 105px;
+          width: 164px;
+          height: 164px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.28);
+
+          .userprofile-image {
+            border-radius: 50%;
+          }
+        }
+        .answer-details-wallet-address {
+          position: relative;
+          left: 250px;
+          top: 30px;
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 44px;
+          letter-spacing: 0.22em;
+          background: white;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+      }
+
+      .answer-details-info {
+        width: 1018px;
+        height: 418px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 110px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .answer-details-link-section {
+          h3 {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 32px;
+          }
+          a {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+
+        .answer-link-desc-section {
+          padding-top: 16px;
+
+          h3 {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 32px;
+          }
+          p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
