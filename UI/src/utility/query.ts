@@ -18,21 +18,40 @@ export const queryDiscoverData = gql`
 `;
 
 export const getSearchQuestion = (searchText: string | undefined) => {
-  return gql`
+  if (searchText?.length == 0) {
+    return gql`
       query {
-        questionSearch(text: "${searchText}") {
-            questioner
-            id
-            questionHash
-            title
-            description
-            title
-            imageUrl
-            endTimestamp
-            startTimestamp
-            winnersAmount
-            totalWinningAmount
-          }
+        questions(first: 50) {
+          questioner
+          questionHash
+          title
+          description
+          title
+          imageUrl
+          endTimestamp
+          startTimestamp
+          winnersAmount
+          totalWinningAmount
+        }
       }
     `;
+  } else {
+    return gql`
+    query {
+      questions: questionSearch(text: "${searchText}") {
+          questioner
+          id
+          questionHash
+          title
+          description
+          title
+          imageUrl
+          endTimestamp
+          startTimestamp
+          winnersAmount
+          totalWinningAmount
+        }
+    }
+  `;
+  }
 };
