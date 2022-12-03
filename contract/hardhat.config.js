@@ -13,7 +13,7 @@ module.exports = {
     }
   },
   etherscan: {
-    apiKey: process.env.POLYGONSCAN_API_KEY
+    apiKey: process.env.PLOYGON_API_KEY
   },
   solidity: {
     version: "0.8.17",

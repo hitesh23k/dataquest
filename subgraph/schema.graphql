@@ -1,0 +1,65 @@
+type _Schema_
+    @fulltext {
+        name: "questionSearch"
+        language: en
+        algorithm: rank
+        include: [{ entity: "Questions", fields: [{name: "questioner"}, {name: "title"}, {name: "description"}]}]
+}
+
+type _Schema_
+    @fulltext {
+        name: "answersSearch"
+        language: en
+        algorithm: rank
+        include: [{ entity: "Answers", fields: [{name: "answeredTo"}, {name: "linkToAnswer"}, {name: "answerer"}]}]
+}
+
+type _Schema_
+    @fulltext {
+        name: "questWinner"
+        language: en
+        algorithm: rank
+        include: [{ entity: "QuestWinners", fields: [{name: "questID"}, {name: "winners"}]}]
+}
+
+type Questions @entity {
+    questioner: address
+    title: String
+    description: String
+    imageUrl: String
+    token: address
+    totalWinningAmount: uint256
+    startTimestamp: uint256
+    endTimestamp: uint256
+    winnersAmount: uint256[]
+}
+
+type Answers @entity {
+    questionHash: Bytes32
+    linkToAnswer: String
+    description: String
+    imageUrl: String
+    answerer: address
+}
+
+type QuestWinners @entity {
+    questionHash: Bytes32
+    winners: address[]
+}
+
+type AnswersSubmitted @entity {
+    questionHash: Bytes32
+    answersCount: BigInt
+}
+
+type TotalQuest@entity {
+
+}
+
+type TotalAnswers@entity {
+
+}
+
+type WinningAmountDistributed@entity {
+    
+}
