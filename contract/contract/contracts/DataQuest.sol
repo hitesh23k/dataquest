@@ -128,13 +128,4 @@ contract DataQuest {
     function getWinners(bytes32 questionHash) public view returns (address[] memory){
         return questionWinnersMap[questionHash];
     }
-
-    // function transferFundsToWinners(address token, uint256 amount, address[] memory winnersAddress) public {
-    //      // Check balance of questioner
-    //      emit fundTransferredToWinners(msg.sender, token, amount, winnersAddress);
-    // }
-
-    // function lockFund(address _token, uint256 amount, address questionerAddress) private{
-    //      // Check balance of questioner
-    // }
 }

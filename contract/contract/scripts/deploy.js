@@ -1,7 +1,7 @@
 const hre = require("hardhat")
 
 async function main() {
-    const dataQuestFactory = await hre.ethers.getContractFactory("DataQuestV4");
+    const dataQuestFactory = await hre.ethers.getContractFactory("DataQuest");
     const dataQuest = await dataQuestFactory.deploy();
     await dataQuest.deployed();
 
