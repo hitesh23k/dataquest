@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Discoverpage.scss';
 import Header from '../Header/Header';
@@ -15,17 +15,35 @@ function Discoverpage() {
 
   const { data: discoverData } = useQuery(queryDiscoverData);
 
+  const inputElement = useRef() as React.MutableRefObject<HTMLInputElement>;
+
   const [getSearchResultfromQuery, { data: searchResult }] = useLazyQuery(
     getSearchQuestion(userSearchValue.split(' ').join(' | '))
   );
 
   const handleSearch = () => {
-    if (userSearchValue.length > 0) {
+    if (inputElement.current.value.length != 0) {
       getSearchResultfromQuery();
     } else {
       alert('InValid Search');
     }
   };
+
+  
+  useEffect(() => {
+    // let btn = document.getElementById('btn-click')as HTMLInputElement | null;
+    document.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        if(inputElement.current.value.trimStart() == ''){
+           alert('Invalid Search');
+           inputElement.current.value = inputElement.current.value.trimStart();
+        }else{
+          getSearchResultfromQuery();
+        }
+        
+      }
+    });
+  }, []);
 
   //First Query Call
   useEffect(() => {
@@ -51,8 +69,13 @@ function Discoverpage() {
         }
       );
       if (active.length == 0) {
-        setDiscoverInfo(upcoming);
-        setCurrentTab('UPCOMING');
+        if (upcoming.length == 0) {
+          setDiscoverInfo(ended);
+          setCurrentTab('ENDED');
+        } else {
+          setDiscoverInfo(upcoming);
+          setCurrentTab('UPCOMING');
+        }
       } else {
         setDiscoverInfo(active);
       }
@@ -62,8 +85,40 @@ function Discoverpage() {
   //Search Result UseEffect
   useEffect(() => {
     if (searchResult) {
-      setAllData(searchResult?.questionSearch);
-      setDiscoverInfo(searchResult?.questionSearch);
+      setAllData(searchResult?.questions);
+      if (searchResult) {
+        let now = new Date();
+        let active: any = [];
+        let upcoming: any = [];
+        let ended: any = [];
+        searchResult?.questions.forEach(
+          (bounty: { startTimestamp: string; endTimestamp: string }) => {
+            let startDate = new Date(Number(bounty?.startTimestamp) * 1000);
+            let endDate = new Date(Number(bounty?.endTimestamp) * 1000);
+            if (startDate < now && endDate > now) {
+              active.push(bounty);
+            }
+            if (startDate > now) {
+              upcoming.push(bounty);
+            }
+            if (now > startDate && now > endDate) {
+              ended.push(bounty);
+            }
+          }
+        );
+        if (active.length == 0) {
+          if (upcoming.length == 0) {
+            setDiscoverInfo(ended);
+            setCurrentTab('ENDED');
+          } else {
+            setDiscoverInfo(upcoming);
+            setCurrentTab('UPCOMING');
+          }
+        } else {
+          setDiscoverInfo(active);
+          setCurrentTab('ACTIVE');
+        }
+      }
     }
   }, [searchResult]);
 
@@ -188,12 +243,13 @@ function Discoverpage() {
               </ul>
               <div className="discover-question-input-bar">
                 <input
+                ref={inputElement}
                   value={userSearchValue}
                   onChange={(e) => setUserSearchValue(e.target.value)}
                   type="text"
                   placeholder="Search"
                 />
-                <button className="search-btn" onClick={handleSearch}>
+                <button id="btn-click" className="search-btn" onClick={handleSearch}>
                   <svg
                     className="svg-icon search-icon"
                     aria-labelledby="title desc"
