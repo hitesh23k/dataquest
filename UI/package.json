@@ -16,6 +16,7 @@
     "graphql": "^16.6.0",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-countdown": "^2.3.5",
     "react-currency-format": "^1.1.0",
     "react-dom": "^18.2.0",
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-currency-format": "^1.0.0"
   }
 }

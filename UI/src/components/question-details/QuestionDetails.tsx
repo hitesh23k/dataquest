@@ -7,10 +7,16 @@ import Constant from '../../wrapper/config/Constant';
 import AnswerForm from '../answer-form/AnswerForm';
 import AnswerDetails from '../answer-details/AnswerDetails';
 import Countdown from 'react-countdown';
-import { useCountdownTimer} from "use-countdown-timer";
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { useCountdownTimer } from 'use-countdown-timer';
 import CurrencyFormat from 'react-currency-format';
+import Loader from '../lodaer/loader';
 
 const QuestionDetails = () => {
+  const [showLoader, setShowLoader] = useState(false);
+  const [firstWinner, setFirstWinner] = useState('');
+  const [secondWinner, setSecondWinner] = useState('');
+  const [thirdWinner, setThirdWinner] = useState('');
   let { questionHash } = useParams();
   let argumentToBePassed: string = !questionHash ? '' : questionHash;
   const [questionData, setQuestionData] = useState({} as any);
@@ -21,7 +27,6 @@ const QuestionDetails = () => {
   const { countdown, start, reset, pause, isRunning } = useCountdownTimer({
     timer: 10000,
   });
-
 
   let dataQuestInstance = new DataQuestWrapper(Constant.rpcURL, Constant.dataQuestcontract);
   const getQuestionDetails = async () => {
@@ -47,11 +52,36 @@ const QuestionDetails = () => {
   const openAnswerDetailsModal = () => {
     setShowAnsDetail(!showAnsDetail);
   };
+  const handleFirstWinner = (event: any) => {
+    setFirstWinner(event.target.value);
+    console.log(firstWinner);
+  };
+  const handleSecondWinner = (event: any) => {
+    setSecondWinner(event.target.value);
+    console.log(secondWinner);
+  };
+  const handleThirdWinner = (event: any) => {
+    setThirdWinner(event.target.value);
+    console.log(thirdWinner);
+  };
+
+  const submitWinner = async () => {
+    let winners = [firstWinner, secondWinner, thirdWinner];
+    let DeclareWinnerMethodParams = { questionHash: argumentToBePassed, winners: winners };
+    setShowLoader(true);
+    await dataQuestInstance.declareWinners(DeclareWinnerMethodParams);
+    setShowLoader(false);
+  };
 
   return (
     <>
       <Header />
       <div className="questiondetails-wrapper">
+        {showLoader ? (
+          <div className="loader-container">
+            <Loader />
+          </div>
+        ) : null}
         {showAnswerForm ? (
           <div className="answer-form-container">
             <AnswerForm closeform={answerFormHandler}></AnswerForm>
@@ -99,51 +129,56 @@ const QuestionDetails = () => {
               </div>
             ) : null}
 
-            {convertDateToSeconds(Date.now()) > questionData.endTimestamp ? (
-              <div className="select-winner-section">
-                <div className="select-winner-content">
-                  <h1>Select Winners</h1>
-                  <div className="winner-dropdown-menu">
-                    <div className="first-place-winner">
-                      <img className="medal" src="./images/assets/1st-medal.png" alt="" />
-                      <div className="first-dropdown-menu">
-                        <select name="" id="">
-                          <option value="user1">
-                            <img src="./images/assets/matic.png" alt="matic" />
-                            <h3>0x7...56789</h3>
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="first-place-winner">
-                      <img className="medal" src="./images/assets/2nd-medal.png" alt="" />
-                      <div className="first-dropdown-menu">
-                        <select name="" id="">
-                          <option value="user1">
-                            <img src="./images/assets/matic.png" alt="matic" />
-                            <h3>0x7...56789</h3>
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="first-place-winner">
-                      <img className="medal" src="./images/assets/3rd-medal.png" alt="" />
-                      <div className="first-dropdown-menu">
-                        <select name="" id="">
-                          <option value="user1">
-                            <img src="./images/assets/matic.png" alt="matic" />
-                            <h3>0x7...56789</h3>
-                          </option>
-                        </select>
-                      </div>
+            {/* {convertDateToSeconds(Date.now()) > questionData.endTimestamp ? ( */}
+            <div className="select-winner-section">
+              <div className="select-winner-content">
+                <h1>Select Winners</h1>
+                <div className="winner-dropdown-menu">
+                  <div className="first-place-winner">
+                    <img className="medal" src="./images/assets/1st-medal.png" alt="" />
+                    <div className="first-dropdown-menu">
+                      {/* <img src="./images/assets/matic.png" /> */}
+                      <input
+                        id="first-winner"
+                        name="first-winner"
+                        onChange={handleFirstWinner}
+                        value={firstWinner}
+                      />
                     </div>
                   </div>
-                  <div className="submit-winners">
-                    <button className="submit-winners-btn">Submit Winners</button>
+                  <div className="first-place-winner">
+                    <img className="medal" src="./images/assets/2nd-medal.png" alt="" />
+                    <div className="first-dropdown-menu">
+                      {/* <img src="./images/assets/matic.png" /> */}
+                      <input
+                        id="second-winner"
+                        name="second-winner"
+                        onChange={handleSecondWinner}
+                        value={secondWinner}
+                      />
+                    </div>
+                  </div>
+                  <div className="first-place-winner">
+                    <img className="medal" src="./images/assets/3rd-medal.png" alt="" />
+                    <div className="first-dropdown-menu">
+                      {/* <img src="./images/assets/matic.png" /> */}
+                      <input
+                        id="third-winner"
+                        name="third-winner"
+                        onChange={handleThirdWinner}
+                        value={thirdWinner}
+                      />
+                    </div>
                   </div>
                 </div>
+                <div className="submit-winners">
+                  <button onClick={submitWinner} className="submit-winners-btn">
+                    Submit Winners
+                  </button>
+                </div>
               </div>
-            ) : null}
+            </div>
+            {/* ) : null} */}
             <div className="submissions-section">
               <h1>Submissions ({allSubmissions.length})</h1>
               <hr />
@@ -155,11 +190,13 @@ const QuestionDetails = () => {
                         <img className="user-profile-image" src={submissionsObj.imageUrl} alt="" />
                       </div>
                       <div className="user-details">
-                        <h2 className="wallet-address">
-                          {submissionsObj.answerer.substring(0, 4) +
-                            '...' +
-                            submissionsObj.answerer.substring(38)}
-                        </h2>
+                        <CopyToClipboard text={submissionsObj.answerer}>
+                          <h2 className="wallet-address">
+                            {submissionsObj.answerer.substring(0, 4) +
+                              '...' +
+                              submissionsObj.answerer.substring(38)}
+                          </h2>
+                        </CopyToClipboard>
                         <a
                           className="link-to-ans-tab"
                           target="_blank"
