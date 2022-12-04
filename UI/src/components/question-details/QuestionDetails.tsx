@@ -206,7 +206,7 @@ const QuestionDetails = () => {
                         </a>
                         <span className="link-to-open-modal" onClick={openAnswerDetailsModal}>
                           {' '}
-                          view answer
+                          View Answer
                         </span>
                         {showAnsDetail ? (
                           <AnswerDetails

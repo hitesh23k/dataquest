@@ -41,7 +41,7 @@ function QuestionForm() {
 
   useEffect(() => {
     let totalStake: number = Number(questionData.amount);
-    totalStake = 0.005 * totalStake + totalStake;
+    totalStake = Math.ceil(0.005 * totalStake + totalStake);
     setTotalStakeAmount(totalStake);
     setFormObject();
   }, [questionData]);
