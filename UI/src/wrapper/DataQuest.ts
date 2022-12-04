@@ -45,7 +45,9 @@ export default class DataQuestWrapper {
     const questionHash: string = `${decodedData.questionHash}`;
     console.log(`questionHash:`, questionHash);
 
-    window.location = `http://localhost:3000/question-details/${questionHash}`;
+    // window.location = `http://localhost:3000/question-details/${questionHash}`;
+
+    window.location = window.location.protocol + '//' + window.location.host + `/question-details/${questionHash}`;
 
    // return questionHash;
   }
@@ -71,7 +73,9 @@ export default class DataQuestWrapper {
     const answerHash: string = `${decodedData.answerHash}`;
     console.log(`answerHash:`, answerHash);
 
-    window.location = `http://localhost:3000/question-details/${decodedData.questionHash}`;
+    // window.location = `http://localhost:3000/question-details/${decodedData.questionHash}`;
+
+    window.location = window.location.protocol + '//' + window.location.host + `/question-details/${decodedData.questionHash}`;
 
     // return answerHash;
   }
