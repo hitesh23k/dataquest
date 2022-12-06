@@ -2,6 +2,7 @@
 # DataQuest - Decentralized Data Quest Protocol
 ## Acknowledgements
 
+ - [DevFolio](https://devfolio.co/projects/dataquest-quest-queries-and-earn-e896)
  - [Deployed Contract](https://mumbai.polygonscan.com/address/0x6486B69F11a20a3Af3fc5BCc84D1F6C80645FA10)
  - [Deployed Subgraph](https://thegraph.com/hosted-service/subgraph/abhayait/dataquest)
  - [Push Channel]( https://staging.push.org/#/channels?channel=0x7b3Cb0dbCC799262Ed7A17D71A419d962536645A)
@@ -34,7 +35,7 @@ What if there was a dapp that could help them connect with professionals/people 
 answer their questions, support a decentralized chat platform for dapps/data requestors to communicate with the data finders, and get their requirements met?
 
 ## Documentation
-_Introducing..._ 
+_Introducing..._
 **DataQuest**
 
 Web3’s first truly decentralized platform connects people with data requirements to folks who can bring them the data they need.
